@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Login</title>
     <script src="https://kit.fontawesome.com/d9f55f49c0.js" crossorigin="anonymous"></script>
 
     <style>
@@ -70,6 +70,22 @@
             color: black;
         }
 
+        form p{
+            text-align: left;
+            color: black;
+            margin-bottom: 40px;
+        }
+
+        form p a{
+            text-decoration: none;
+            color: #3c00a0;
+        }
+
+        form p a:hover {
+            text-decoration: underline;
+        }
+
+
         .button-field{
             width: 100%;
             display: flex;
@@ -78,7 +94,7 @@
 
         .button-field button{
             flex-basis: 48%;
-            background: #000000;
+            background: #3c00a0;
             color: white;
             height: 40px;
             border-radius: 20px;
@@ -92,18 +108,70 @@
             height: 250px;
         }
 
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        .modal input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal button {
+            background-color: #3c00a0;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #290080;
+        }
+
     </style>
 </head>
 
 <body>
     <div class="form-box">
-        <h1>Sign Up</h1>
+        <h1>Login</h1>
         <form id="signupform" action="homepage.html" method="GET">
             <div class="input-group">
-                <div class="input-field">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Name" required>
-                </div>
 
                 <div class="input-field"> 
                     <i class="fa-solid fa-envelope"></i>
@@ -116,6 +184,7 @@
                 </div>
 
             </div>
+            <p>Forgot password? <a id="forgotPasswordLink">Click Here</a></p>
 
             <div class="button-field">
                 <button type="button" onclick="resetForm()">Reset</button>
@@ -125,9 +194,40 @@
         </form>
     </div>
 
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Reset Password</h2>
+            <p>Enter your registered email to receive a password reset link.</p>
+            <input type="email" id="forgotEmail" placeholder="Enter your email" required>
+            <button onclick="sendResetLink()">Send Reset Link</button>
+        </div>
+    </div>
+
     <script>
         function resetForm(){
             document.getElementById('signupform').reset();
+        }
+
+        // Open Modal
+        document.getElementById('forgotPasswordLink').onclick = function() {
+            document.getElementById('forgotPasswordModal').style.display = 'block';
+        };
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('forgotPasswordModal').style.display = 'none';
+        }
+
+        // Send Reset Link (Example Functionality)
+        function sendResetLink() {
+            const email = document.getElementById('forgotEmail').value;
+            if (email) {
+                alert(`Password reset link sent to ${email}`);
+                closeModal();
+            } else {
+                alert('Please enter a valid email.');
+            }
         }
     </script>
     
