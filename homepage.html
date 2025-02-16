@@ -4,49 +4,130 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindScan</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; 
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.014)), url("./image/bg1.jpg"); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            color: white; 
+            font-size: 18px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center; 
+            flex-direction: column;
+            height: 100vh; 
+            overflow: hidden;
+        }
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: rgb(0, 6, 20);
+            color: white;
+            width: 100%;
+            position: fixed; 
+            top: 0;
+            z-index: 10; /*header stays on top */
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px; 
+            color: white;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .buttons a {
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: white;
+            color: rgb(0, 6, 20);
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .buttons a:hover {
+            background-color: #f5f5f5;
+        }
+        /* Main Content */
+        .content {
+            text-align: center;
+            padding: 60px 20px;
+            width: 100%;
+            max-width: 100%; /* Prevent overflow */
+            margin-top: 130px; /* Space for fixed header */
+        }
+        .dynamic-text {
+            color: white;
+            font-size: 28px;
+            font-style: italic;
+            margin-top: 20px;
+            height: 30px; 
+            transition: opacity 0.5s ease-in-out;
+        }
+        .content p {
+            max-width: 900px;
+            margin: 30px auto;
+            line-height: 1.6;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
     <title>Homepage</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d9f55f49c0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-    <section id="header">
-        <a href="#"><img src="./image/logo1.png" class="logo" alt="Logo"></a>
-        <div id="navbar">
-            <ul class="nav-links">
-                <li><a class="active" href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="procedure.html">Procedure</a></li>
-                <li><a href="stucture.html">3D Structure</a></li>
-            </ul>
-            <ul class="nav-icons">
-                <li><a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-            </ul>
+    <!-- Header -->
+    <div class="header">
+        <h1>MindScan</h1>
+        <div class="buttons">
+            <a href="login.html" title="Login Page">Login</a>
+            <a href="signup.html" title="Sign Up Page">Sign Up</a>
         </div>
-    </section>
+    </div>
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Detect. Diagnose. Save Lives. 🌍🚀🧠</h1>
+        <div class="dynamic-text" id="dynamicText"></div> 
+        <p>Early detection saves lives! Our AI-powered Brain Tumor Detection System leverages cutting-edge machine learning to analyze brain scans with high accuracy. Designed for rapid and reliable diagnosis, our tool empowers healthcare professionals with advanced insights, improving patient outcomes.</p>
+    </div>
 
-    <section id="hero-container">
-        <!-- Left Section -->
-        <div id="hero-left">
-            <h2>Early Detection</h2>
-            <h1>Saves</h1>
-            <h2>More Lives.</h2>
-        </div>
-        <!-- Right Section -->
-        <div id="hero-right"></div>
-    </section>
+    <script>
+        const dynamicText = [
+            "🔬 Smart AI, Smarter Healthcare",
+            "🚀 Lightning-fast analysis – Get results in seconds!",
+            "✅ Accuracy redefined – AI models trained for precision.",
+            "🌍 Accessible to all – Early diagnosis made simple.",
+        ];
+        let index = 0;
+        function updateDynamicText() {
+            const textElement = document.getElementById("dynamicText");
+            textElement.textContent = dynamicText[index];
+            index = (index + 1) % dynamicText.length; // Loop through the array
+        }
 
-    <footer>
-        <p>&copy; FarmPure. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-    </footer>
-
+        // Initial call and interval for updating text
+        updateDynamicText();
+        setInterval(updateDynamicText, 1500); // Change text every 1.5 seconds
+    </script>
     <script src="script.js"></script>
 </body>
 
+</html>
 </html>
