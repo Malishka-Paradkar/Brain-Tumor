@@ -178,7 +178,7 @@ body {
 /* Left Section with Text and Background */
 #hero-left {
     background-image: url('./image/pic4.png');
-    width: 50%;
+    width: 25%;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -199,10 +199,10 @@ body {
 
 /* Right Section with Background Image */
 #hero-right {
-    background-image: url('./image/bg2.jpg'); 
+    background-image: url('./image/bg4.webp'); 
     background-size: cover;
     background-position: center;
-    width: 50%;
+    width: 75%;
 }
 
 #hero-left,
