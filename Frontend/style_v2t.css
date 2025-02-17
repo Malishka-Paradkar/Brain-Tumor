@@ -2,6 +2,11 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
+    background-image:linear-gradient(0deg, rgba(190, 199, 248, 0.182), rgba(27, 62, 240, 0.495)),url("./image/bg10.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
     text-align: center;
     margin: 0;
     padding: 20px;
@@ -48,32 +53,32 @@ button {
 }
 
 #startBtn {
-    background-color: #28a745;
+    background-color: #0e6370;
     color: white;
 }
 
 #stopBtn {
-    background-color: #dc3545;
+    background-color:#0e6370;
     color: white;
 }
 
 #simplifyBtn {
-    background-color: #007bff;
+    background-color: #0e6370;
     color: white;
 }
 
 #clearBtn {
-    background-color: #ffc107;
+    background-color: #0e6370;
     color: white;
 }
 
 #saveBtn {
-    background-color: #17a2b8;
+    background-color: #0e6370;
     color: white;
 }
 
 #downloadBtn {
-    background-color: #6f42c1;
+    background-color: #0e6370;
     color: white;
 }
 
