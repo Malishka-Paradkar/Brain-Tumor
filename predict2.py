@@ -46,7 +46,7 @@ def future_tumor_risk(answers):
         return "Low risk of developing brain tumor in the future."
 
 # Sample input: MRI Image and Patient quiz data
-image_path = '/Applications/Coding/MindScan/data2/test/notumor/Te-no_0010.jpg'
+image_path = '/Applications/Coding/MindScan/data2/test/meningioma/Te-me_0010.jpg'
 try:
     predicted_class, tumor_location = predict_tumor(image_path)
     print(f"Predicted tumor type: {predicted_class}")
@@ -81,7 +81,6 @@ def family_genetics_and_blood_test_quiz():
 answers = family_genetics_and_blood_test_quiz()
 future_risk = future_tumor_risk(answers)
 print(f"Future risk of brain tumor: {future_risk}")
-
 
 
 
