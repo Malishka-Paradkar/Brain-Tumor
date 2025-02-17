@@ -1,0 +1,92 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    background: white;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 150px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+    font-size: 16px;
+    padding: 10px 15px;
+    margin: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+#startBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#stopBtn {
+    background-color: #dc3545;
+    color: white;
+}
+
+#simplifyBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#clearBtn {
+    background-color: #ffc107;
+    color: white;
+}
+
+#saveBtn {
+    background-color: #17a2b8;
+    color: white;
+}
+
+#downloadBtn {
+    background-color: #6f42c1;
+    color: white;
+}
+
+/* Button Hover Effects */
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Status Message */
+#status {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+}
