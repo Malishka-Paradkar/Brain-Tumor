@@ -52,7 +52,7 @@ body {
 }
 
 .logo {
-    width: 200px; 
+    width: 120px; 
     height: auto; /* Maintains the aspect ratio */
     margin-right: 20px; 
 }
@@ -122,35 +122,6 @@ body {
     width: 100%;
 }
 
-/* Right-aligned icons */
-.nav-icons {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-icons a:hover {
-    color: #107d09;
-    background-color: #e6f4e6; 
-    border-color: #107d09; 
-}
-
-.nav-icons a::after {
-    content: "";
-    width: 0;
-    height: 2px;
-    background: #107d09;
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    transition: width 0.3s ease;
-}
-
-.nav-icons a:hover::after {
-    width: 100%;
-}
-
 /* Home Page*/
 #hero-container {
     display: flex;
@@ -180,17 +151,12 @@ body {
     margin: 20px;  /* Adds spacing for responsiveness */
 }
 
-#hero-left h2, #hero-left h4, #hero-left p {
-    margin: 10px 0; /* Adds spacing between sections */
-    line-height: 1.5;
-}
-
 #hero-left h2, #hero-left h4 {
     margin: 10px 0;
 }
 
 #hero-left h2 {
-    font-size: 46px;
+    font-size: 40px;
     color: #107d09; /* Green heading for better contrast */
 }
 
@@ -199,19 +165,19 @@ body {
     color: #465b52;
     line-height: 1.5;
     margin: 15px 0;
-    max-width: 100%;  /* Ensures text wraps properly */
-    word-wrap: break-word;  /* Prevents long words from breaking the layout */
+    max-width: 100%;  
+    word-wrap: break-word; 
 }
 
 footer {
     display: flex; /* Flexbox for layout */
     align-items: center; /* Vertically center content */
     justify-content: space-between; /* Spread content horizontally */
-    padding: 10px 30px; /* Same padding as the header */
-    background: #ffffff; /* Same background color as the header */
+    padding: 10px 30px; 
+    background: #ffffff; 
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.06); /* Subtle shadow at the top */
     z-index: 999; /* Ensure it layers properly */
-    position: relative; /* Default position */
+    position: relative; 
     bottom: 0; /* Keeps the footer at the bottom */
     flex: 0 0 auto;
 }
