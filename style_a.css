@@ -140,10 +140,6 @@ body {
     margin: 20px;  /* Adds spacing for responsiveness */
 }
 
-#hero-left h2, #hero-left h4 {
-    margin: 10px 0;
-}
-
 #hero-left h2 {
     font-size: 35px;
     color: #107d09; /* Green heading for better contrast */
