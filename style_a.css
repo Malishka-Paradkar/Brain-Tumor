@@ -135,18 +135,7 @@ body {
 
 /* Left Section with Text and Background */
 #hero-left {
-    background-image: url('./image/pic4.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    width: 100%;
-    color: #222;
-    max-width: 800px;  /* Adjust to your desired content width */
+    max-width: 800px;  
     flex: 1;
     margin: 20px;  /* Adds spacing for responsiveness */
 }
@@ -156,7 +145,7 @@ body {
 }
 
 #hero-left h2 {
-    font-size: 40px;
+    font-size: 35px;
     color: #107d09; /* Green heading for better contrast */
 }
 
@@ -170,22 +159,22 @@ body {
 }
 
 footer {
-    display: flex; /* Flexbox for layout */
-    align-items: center; /* Vertically center content */
-    justify-content: space-between; /* Spread content horizontally */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
     padding: 10px 30px; 
     background: #ffffff; 
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.06); /* Subtle shadow at the top */
-    z-index: 999; /* Ensure it layers properly */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.06); 
+    z-index: 999; 
     position: relative; 
-    bottom: 0; /* Keeps the footer at the bottom */
+    bottom: 0; 
     flex: 0 0 auto;
 }
 
 footer p {
     margin: 0;
-    font-size: 14px; /* Adjust the font size */
-    color: #1a1a1a; /* Match the color of the header links */
+    font-size: 14px; 
+    color: #1a1a1a; 
 }
 
 .social-icons {
@@ -196,26 +185,26 @@ footer p {
 }
 
 .social-icons a {
-    color: #1a1a1a; /* Match the header icon color */
-    font-size: 20px; /* Adjust icon size */
-    margin-left: 20px; /* Spacing between icons */
+    color: #1a1a1a; 
+    font-size: 20px; 
+    margin-left: 20px; 
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px; /* Box width for icons */
-    height: 40px; /* Box height for icons */
-    background-color: #f9f9f9; /* Light box background */
-    border: 1px solid #ddd; /* Border for the box */
-    border-radius: 5px; /* Rounded corners */
-    transition: all 0.3s ease; /* Smooth hover transition */
+    width: 40px; 
+    height: 40px; 
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    transition: all 0.3s ease; 
     text-decoration: none;
 }
 
 .social-icons a:hover {
-    color: #107d09; /* Green icon on hover */
-    background-color: #e6f4e6; /* Light green background on hover */
-    border-color: #107d09; /* Green border on hover */
+    color: #107d09; 
+    background-color: #e6f4e6; 
+    border-color: #107d09; 
 }
 
 .social-icons a::after {
