@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Notes Simplifier</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        textarea { width: 80%; height: 150px; font-size: 16px; padding: 10px; }
+        button { font-size: 16px; padding: 10px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>🩺 Doctor's Notes Simplifier</h2>
+    <textarea id="textInput" placeholder="Enter or speak doctor's notes..."></textarea><br>
+    <button id="startBtn">🎤 Start Dictation</button>
+    <button id="stopBtn" disabled>⏹️ Stop</button>
+    <button id="simplifyBtn">🔄 Simplify Text</button>
+    <button id="clearBtn">🗑️ Clear</button>
+    <button id="saveBtn">💾 Save Notes</button>
+    <p id="status"></p>
+
+    <script>
+        let recognition;
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.lang = 'en-US'; // Change for different languages
+            recognition.continuous = true;
+            recognition.interimResults = false;
+
+            let textInput = document.getElementById("textInput");
+            let startBtn = document.getElementById("startBtn");
+            let stopBtn = document.getElementById("stopBtn");
+            let clearBtn = document.getElementById("clearBtn");
+            let saveBtn = document.getElementById("saveBtn");
+            let status = document.getElementById("status");
+
+            startBtn.addEventListener("click", () => {
+                recognition.start();
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                status.textContent = "🎤 Listening...";
+            });
+
+            stopBtn.addEventListener("click", () => {
+                recognition.stop();
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+                status.textContent = "✅ Stopped. You can now edit.";
+            });
+
+            recognition.onresult = (event) => {
+                let transcript = event.results[event.results.length - 1][0].transcript.trim();
+                textInput.value = transcript;
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error:", event);
+                status.textContent = "❌ Error in speech recognition!";
+            };
+
+            recognition.onend = () => {
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            };
+
+            // Simplify Text
+            function simplifyText(doctorNotes) {
+                let replacements = {
+                    "hypertension": "high blood pressure",
+                    "myocardial infarction": "heart attack",
+                    "neoplasm": "tumor",
+                    "fracture": "broken bone",
+                    "benign": "non-cancerous",
+                    "malignant": "cancerous"
+                };
+
+                let simplifiedText = doctorNotes;
+                Object.keys(replacements).forEach((key) => {
+                    let regex = new RegExp("\\b" + key + "\\b", "gi");
+                    simplifiedText = simplifiedText.replace(regex, replacements[key]);
+                });
+
+                return simplifiedText;
+            }
+
+
+            document.getElementById("simplifyBtn").addEventListener("click", () => {
+                let notes = textInput.value;
+                textInput.value = simplifyText(notes);
+            });
+
+            // Clear the text input
+            clearBtn.addEventListener("click", () => {
+                textInput.value = "";
+                localStorage.removeItem("doctorNotes");
+                status.textContent = "🗑️ Notes cleared.";
+            });
+
+
+            // Save notes to local storage
+            saveBtn.addEventListener("click", () => {
+                localStorage.setItem("doctorNotes", textInput.value);
+                alert("💾 Notes saved successfully!");
+            });
+
+            // Download notes as a text file
+            function downloadNotes() {
+                let notes = textInput.value;
+                let blob = new Blob([notes], { type: "text/plain" });
+                let link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "Doctor_Notes.txt";
+                link.click();
+            }
+
+            // Add Download button dynamically
+            saveBtn.insertAdjacentHTML("afterend", '<button id="downloadBtn">📥 Download Notes</button>');
+            document.getElementById("downloadBtn").addEventListener("click", downloadNotes);
+
+            // Load saved notes on page load
+            document.addEventListener("DOMContentLoaded", () => {
+                let savedNotes = localStorage.getItem("doctorNotes");
+                if (savedNotes) {
+                    textInput.value = savedNotes;
+                }
+            });
+
+        } else {
+            alert("Your browser does not support voice recognition. Try Chrome or Edge.");
+        }
+        
+    </script>
+
+</body>
+</html>
