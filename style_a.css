@@ -135,18 +135,7 @@ body {
 
 /* Left Section with Text and Background */
 #hero-left {
-    background-image: url('./image/pic4.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    width: 100%;
-    color: #222;
-    max-width: 800px;  /* Adjust to your desired content width */
+    max-width: 800px;  
     flex: 1;
     margin: 20px;  /* Adds spacing for responsiveness */
 }
