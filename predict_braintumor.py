@@ -50,7 +50,7 @@ def future_tumor_risk(answers):
 # GUI Logic to directly load an image without a dialog
 def open_image():
     # Specify the path to the image you want to use directly
-    file_path ="D:\\healthhack\\Brain-Tumor\\Frontend\\image\\glioma"  # <-- Replace with your image path
+    file_path = r"C:\Users\Malishka Paradkar\OneDrive\文档\GitHub\Brain Tumor\Frontend\image\glioma" # <-- Replace with your image path
     
     if file_path:
         try:
